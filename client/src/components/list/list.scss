@@ -1,0 +1,68 @@
+// list.scss
+.list {
+  width: 100%;
+  position: relative;
+  margin:20px auto 20px auto;
+
+  .listTitle {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 50px;
+    height: 100px;
+    background-color: rgba(22, 22, 22, 0.7);
+    color: #ffffff;
+    border-radius: 5%;
+    z-index: 99;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    
+
+    &:hover {
+      background-color: rgba(22, 22, 22, 0.9);
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 0;
+  }
+
+ 
+
+    li button:before {
+      color: #ffffff;
+      opacity: 0.75;
+    }
+
+    li.slick-active button:before {
+      color: #ffffff;
+      opacity: 1;
+    }
+  
+
+  .slick-slide {
+    padding: 0 10px;
+  }
+
+  .slick-list {
+    padding: 0 20px;
+    margin-top: 7px;
+    
+    
+  }
+}
