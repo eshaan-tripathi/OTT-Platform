@@ -12,7 +12,7 @@ import NewProduct from "./pages/newProduct/NewProduct";
 
 
 function App() {
-  return (
+  return (<>
     <Router>
       <Topbar />
       <div className="container">
@@ -42,6 +42,8 @@ function App() {
         </Switch>
       </div>
     </Router>
+    
+    </>
   );
 }
 

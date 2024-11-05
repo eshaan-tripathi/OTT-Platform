@@ -11,12 +11,18 @@ import {
   getMoviesSuccess,
 } from "./movieActions";
 
+// Set the base URL for axios
+axios.defaults.baseURL = 'http://localhost:8800';
+
+// The access token you want to use
+const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjZlOWVmNjBhN2NhYTA5Y2IzYTNiNiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTczMDc3NjYxNiwiZXhwIjoxNzMxMjA4NjE2fQ.zPuDVYcUTCabQ_PDEZ_GoxLCIkKRHcvFOdObLvFwkYI";
+
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   try {
     const res = await axios.get("/movies", {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: "Bearer " + accessToken,
       },
     });
     dispatch(getMoviesSuccess(res.data));
@@ -31,7 +37,7 @@ export const createMovie = async (movie, dispatch) => {
   try {
     const res = await axios.post("/movies", movie, {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: "Bearer " + accessToken,
       },
     });
     dispatch(createMovieSuccess(res.data));
@@ -46,7 +52,7 @@ export const deleteMovie = async (id, dispatch) => {
   try {
     await axios.delete("/movies/" + id, {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: "Bearer " + accessToken,
       },
     });
     dispatch(deleteMovieSuccess(id));
